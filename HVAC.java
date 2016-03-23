@@ -147,7 +147,8 @@ public class HVAC {
 
         System.out.println("1. Add service call for furnace");
         System.out.println("2. Add service call for AC unit");
-        System.out.println("3. Quit");
+        System.out.println("3. Water Heater Unit");
+        System.out.println("4. Quit");
 
         int choice = getPositiveIntInput();
 
@@ -189,9 +190,24 @@ public class HVAC {
                 todayServiceCalls.add(ac);
                 System.out.println("Added the following AC unit to list of calls:\n" + ac);
                 break;
+            }
+
+                case 3: {
+
+                System.out.println("Enter address of water heater");
+                String address = getStringInput();
+                System.out.println("Enter description of problem");
+                String problem = getStringInput();
+                System.out.println("Enter model of water heater");
+                String model = getStringInput();
+
+                WaterHeater wh = new WaterHeater(address, problem, new Date(), model);
+                todayServiceCalls.add(wh);
+                System.out.println("Added the following water heater to list of calls:\n" + wh);
+                break;
 
             }
-            case 3: {
+            case 4: {
                 return;
 
             }
